@@ -12,14 +12,14 @@ Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arx
   - Convert 3-momenta to Cartesian coordinates
 - Events converted to 224x224 images by printing feature values as floats (3 d.p. precision) as text on black backgrounds
 
-### Classifier training, e.g. [0_resnet34_data-fix_EF-224.ipynb](https://github.com/GilesStrong/SuperTML_HiggsML_Test/blob/master/notebooks/0_resnet34_data-fix_EF-224.ipynb)
+### Classifier training, e.g. [1_resnet34_data-fix_EF-224.ipynb](https://github.com/GilesStrong/SuperTML_HiggsML_Test/blob/master/notebooks/1_resnet34_data-fix_EF-224.ipynb)
 
 - CNN classifier constructed using Resnet34 pretrained on ImageNet as a backbone
 - CNN is refined on training data in two stages:
   - 1st stage only trains final two dense layers
   - 2nd stage unfreezes and trains entire network (with discriminative learning rates)
 
-### Inference, e.g. [0_resnet34_data-fix_EF-224.ipynb](https://github.com/GilesStrong/SuperTML_HiggsML_Test/blob/master/notebooks/0_resnet34_data-fix_EF-224.ipynb)
+### Inference, e.g. [1_resnet34_data-fix_EF-224.ipynb](https://github.com/GilesStrong/SuperTML_HiggsML_Test/blob/master/notebooks/1_resnet34_data-fix_EF-224.ipynb)
 
 - Refined CNN applied to validation data
 - Predictions converted to 1D prediction (zero = background, 1 = signal)
@@ -38,6 +38,15 @@ Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arx
   - Maximum AMS on validation data is 2.91, AMS at chosen cut is 2.80
   - Public-private AMS on test data at chosen cut = 2.79-2.74
   - Appears to be better than random guessing, but currently worse than traditional binary classification and no where near the 3.979 reported
+
+- Second attempt:
+  - Moved to ariel 13 for font (text on previous images were a bit pixelated)
+  - Shortened 2nd stage of training
+  - Slightly improved performance:
+    - min validation error-rate ~17%
+    - Maximum AMS on validation data is 3.10, AMS at chosen cut is 3.02
+    - Public-private AMS on test data at chosen cut = 2.78-2.83
+  - Slight improvements with cleaner text labels, but still bad performance
 
 ## Requirements
 
