@@ -1,7 +1,6 @@
 # SuperTML for HiggsML
 
 Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arxiv.org/abs/1903.06246) for the [Higgs ML Kaggle Challenge](https://www.kaggle.com/c/higgs-boson)
-]
 
 ## Process
 
