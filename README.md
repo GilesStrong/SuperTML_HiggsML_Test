@@ -41,5 +41,5 @@ Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arx
 
 ## Requirements
 
-- fastai > 1.0 - CNN training & inference
-- lumin == 0.2 - data processing, scoring
+- [fastai](https://github.com/fastai/fastai) > 1.0 - CNN training & inference
+- [lumin](https://github.com/GilesStrong/lumin) == 0.2 - data processing, scoring
