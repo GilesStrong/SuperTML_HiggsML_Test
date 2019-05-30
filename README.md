@@ -4,21 +4,30 @@ Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arx
 
 ## Process
 
-### Pre-processing and image creation ([image_formatter.ipynb](https://github.com/GilesStrong/SuperTML_HiggsML_Test/blob/master/notebooks/image_formatter.ipynb))
+### Pre-processing and image creation 
+
+#### As text ([image_formatter.ipynb](https://github.com/GilesStrong/SuperTML_HiggsML_Test/blob/master/notebooks/image_formatter.ipynb))
 
 - Tabula data is pre-processed to:
   - Fix event orientation in phi, x, and z
   - Convert 3-momenta to Cartesian coordinates
 - Events converted to 224x224 images by printing feature values as floats (3 d.p. precision) as text on black backgrounds
 
-### Classifier training, e.g. [1_resnet34_data-fix_EF-224.ipynb](https://github.com/GilesStrong/SuperTML_HiggsML_Test/blob/master/notebooks/1_resnet34_data-fix_EF-224.ipynb)
+#### As pixels ([image_formatter.ipynb](https://github.com/GilesStrong/SuperTML_HiggsML_Test/blob/master/notebooks/image_formatter_pixels.ipynb))
+
+- Tabula data is pre-processed to:
+  - Fix event orientation in phi, x, and z
+  - Convert 3-momenta to Cartesian coordinates
+- Events converted to 224x224 images by colouring blocks of pixels according to feature values
+
+### Classifier training, e.g. [2_resnet34_data-fix_Pixels-224.ipynb](https://github.com/GilesStrong/SuperTML_HiggsML_Test/blob/master/notebooks/2_resnet34_data-fix_Pixels-224.ipynb)
 
 - CNN classifier constructed using Resnet34 pretrained on ImageNet as a backbone
 - CNN is refined on training data in two stages:
   - 1st stage only trains final two dense layers
   - 2nd stage unfreezes and trains entire network (with discriminative learning rates)
 
-### Inference, e.g. [1_resnet34_data-fix_EF-224.ipynb](https://github.com/GilesStrong/SuperTML_HiggsML_Test/blob/master/notebooks/1_resnet34_data-fix_EF-224.ipynb)
+### Inference, e.g. [2_resnet34_data-fix_Pixels-224.ipynb](https://github.com/GilesStrong/SuperTML_HiggsML_Test/blob/master/notebooks/2_resnet34_data-fix_Pixels-224.ipynb)
 
 - Refined CNN applied to validation data
 - Predictions converted to 1D prediction (zero = background, 1 = signal)
@@ -46,6 +55,21 @@ Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arx
     - Maximum AMS on validation data is 3.10, AMS at chosen cut is 3.02
     - Public-private AMS on test data at chosen cut = 2.78-2.83
   - Slight improvements with cleaner text labels, but still bad performance
+
+- Third attempt
+  - Encoded data as blocks of different pixel intensities by passing standardised & normalised data through a sigmoid and timesing by 255
+  - Encoding was quicker and image file size was smaller (13 GB --> 9 GB)
+  - Training slightly imporved: 16% error rate
+  - Maximum AMS on validation data is 3.62, AMS at chosen cut is 3.44
+  - Public-private AMS on test data at chosen cut = 3.29-3.32
+  - Better encoding, but performance still worse than a 4-layer ReLU FCNN
+
+- Fourth attempt
+  - Same as third attempt, but using train-time data augmentation to adjust the contrast and brightness slightly during training
+  - Training slightly worsened, but still around a 16% error rate
+  - Similar validation performance: Maximum AMS on validation data is 3.61, AMS at chosen cut is 3.45
+  - Similar test performance: Public-private AMS on test data at chosen cut = 3.24-3.36
+  - Running test-time data augmentation worsened results considerably
 
 ## Requirements
 
