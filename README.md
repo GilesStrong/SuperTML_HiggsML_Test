@@ -13,7 +13,7 @@ Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arx
   - Convert 3-momenta to Cartesian coordinates
 - Events converted to 224x224 images by printing feature values as floats (3 d.p. precision) as text on black backgrounds
 
-#### As pixels ([image_formatter.ipynb](https://github.com/GilesStrong/SuperTML_HiggsML_Test/blob/master/notebooks/image_formatter_pixels.ipynb))
+#### As pixels ([image_formatter_pixels.ipynb](https://github.com/GilesStrong/SuperTML_HiggsML_Test/blob/master/notebooks/image_formatter_pixels.ipynb))
 
 - Tabula data is pre-processed to:
   - Fix event orientation in phi, x, and z
