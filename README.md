@@ -71,6 +71,13 @@ Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arx
   - Similar test performance: Public-private AMS on test data at chosen cut = 3.24-3.36
   - Running test-time data augmentation worsened results considerably
 
+- Fifth attempt
+  - Removed data augmentation
+  - Moved to SE-net 50
+  - ~15.7% error rate for a 4 times increase in train time (had to halve batch size)
+  - Improved validation performance: Maximum AMS on validation data is 3.71, AMS at chosen cut is 3.59
+  - Improved test performance: Public-private AMS on test data at chosen cut = 3.35-3.48
+
 ## Requirements
 
 - Python >= 3.6
