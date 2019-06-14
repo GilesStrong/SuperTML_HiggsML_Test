@@ -78,6 +78,29 @@ Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arx
   - Improved validation performance: Maximum AMS on validation data is 3.71, AMS at chosen cut is 3.59
   - Improved test performance: Public-private AMS on test data at chosen cut = 3.35-3.48
 
+- Sixth attempt
+  - Moved to using SE-net 154 (same model used in paper)
+  - Same error rate as SE-net 50 (15.67%) for a 4.4 times in crease in train time
+  - Slight improvement for validation data: Maximum AMS on validation data is 3.72, AMS at chosen cut is 3.64
+  - Improved test performance:
+    - Public-private AMS on test data at chosen cut = 3.50-3.48
+    - Public-private AMS on test data at max cut    = 3.49-3.52
+  - Tested maximising AMS on test data: Maximum public : `private AMS = 3.50 : 3.52
+  - Tested maximising AMS on subsamples of test data: Maximum maximised public : private AMS  over 10 subsamples = 5.79	3.87
+
+- Seventh attempt
+  - Moved back to using SE-net 50
+  - Encoded data as block rather than thin rectangles
+  - Reduced image dimension to 56x56
+  - Slighlty higher error rate than previous SE-net 50 result (15.9% c.f. 15.7) but a 90% reduction in traintime due to higher batch-size
+  - Slight lower for validation data: Maximum AMS on validation data is 3.66, AMS at chosen cut is 3.44
+  - Test performance:
+    - Public-private AMS on test data at chosen cut = 3.30-3.41
+    - Public-private AMS on test data at max cut    = 3.40-3.48
+  - Maximum public : `private AMS = 3.45 : 3.49
+  - Maximum maximised public : private AMS over 10 subsamples = 5.43	3.68
+
+
 ## Requirements
 
 - Python >= 3.6

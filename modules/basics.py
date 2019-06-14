@@ -43,18 +43,18 @@ def multiclass2binary(x:Tensor) -> Tensor:
     return preds[0]
 
 
-def score_test_df(df:pd.DataFrame, cut:float):
+def score_test_df(df:pd.DataFrame, cut:float, public_wgt_factor:float=1, private_wgt_factor:float=1, verbose:bool=True):
     accept = (df.pred >= cut)
     signal = (df.gen_target == 1)
     bkg = (df.gen_target == 0)
     public = (df.private == 0)
     private = (df.private == 1)
 
-    public_ams = calc_ams(np.sum(df.loc[accept & public & signal, 'gen_weight']),
-                          np.sum(df.loc[accept & public & bkg, 'gen_weight']))
+    public_ams = calc_ams(public_wgt_factor*np.sum(df.loc[accept & public & signal, 'gen_weight']),
+                          public_wgt_factor*np.sum(df.loc[accept & public & bkg, 'gen_weight']))
 
-    private_ams = calc_ams(np.sum(df.loc[accept & private & signal, 'gen_weight']),
-                           np.sum(df.loc[accept & private & bkg, 'gen_weight']))
+    private_ams = calc_ams(private_wgt_factor*np.sum(df.loc[accept & private & signal, 'gen_weight']),
+                           private_wgt_factor*np.sum(df.loc[accept & private & bkg, 'gen_weight']))
 
-    print("Public:Private AMS: {} : {}".format(public_ams, private_ams))    
+    if verbose: print("Public:Private AMS: {} : {}".format(public_ams, private_ams))    
     return public_ams, private_ams
