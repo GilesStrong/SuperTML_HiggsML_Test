@@ -74,13 +74,13 @@ Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arx
 - Fifth attempt
   - Removed data augmentation
   - Moved to SE-net 50
-  - ~15.7% error rate for a 4 times increase in train time (had to halve batch size)
+  - ~15.7% error rate for a 2 times increase in train time (had to halve batch size)
   - Improved validation performance: Maximum AMS on validation data is 3.71, AMS at chosen cut is 3.59
   - Improved test performance: Public-private AMS on test data at chosen cut = 3.35-3.48
 
 - Sixth attempt
   - Moved to using SE-net 154 (same model used in paper)
-  - Same error rate as SE-net 50 (15.67%) for a 4.4 times in crease in train time
+  - Same error rate as SE-net 50 (15.67%) for a 4.2 times in crease in train time
   - Slight improvement for validation data: Maximum AMS on validation data is 3.72, AMS at chosen cut is 3.64
   - Improved test performance:
     - Public-private AMS on test data at chosen cut = 3.50-3.48

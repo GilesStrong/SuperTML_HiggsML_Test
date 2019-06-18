@@ -2,6 +2,7 @@ Data/*
 **/train_weights
 data/*
 **/.DS_Store
+**.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
