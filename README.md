@@ -2,7 +2,7 @@
 
 Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arxiv.org/abs/1903.06246) for the [Higgs ML Kaggle Challenge](https://www.kaggle.com/c/higgs-boson) using data from [CERN OpenData](http://opendata.cern.ch/record/328).
 
-This progress presentation was presented at the 3rd CMS Macine Learning workshop at CERN on 19/06/19.
+[This](https://github.com/GilesStrong/SuperTML_HiggsML_Test/blob/master/presentations/GS_CMSML_SuperTML.pdf) progress presentation was presented at the 3rd CMS Macine Learning workshop at CERN on 19/06/19.
 
 ## Process
 
