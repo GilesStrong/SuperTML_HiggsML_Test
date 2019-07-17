@@ -102,6 +102,23 @@ Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arx
   - Maximum public : `private AMS = 3.45 : 3.49
   - Maximum maximised public : private AMS over 10 subsamples = 5.43	3.68
 
+- Eigth attempt
+  - Playing around with different ordering schemes
+
+- Contact with authors 10/07/19:
+  - Is code publically available? = no answer
+  - Training and testing sizes? = Confirmed 250,000 training and 550,000 testing; difference in paper was a typo
+  - How is the cut optimised, on validation or testing? = no answer
+  - Is weight used as input feature? = No
+  - How is pretrained model altered? =  Confimed single stage training and only output layer of model was altered
+
+- Ninth attempt
+  - Moving back to text encoding, SE-Net 154, and 224x224 images
+  - Removed additional dense layers and ran single stage training as per authors' suggestion
+  - 17.5% error rate on validation sample during training = on par with ResNet34
+  - Maximum AMS on validation data is 3.25, AMS at chosen cut is 3.11
+    - Public-private AMS on test data at chosen cut = 2.95-2.95
+    - Maximum public-private AMS on test data = 3.00-3.04
 
 ## Requirements
 
