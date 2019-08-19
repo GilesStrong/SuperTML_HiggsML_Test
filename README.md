@@ -120,6 +120,11 @@ Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arx
     - Public-private AMS on test data at chosen cut = 2.95-2.95
     - Maximum public-private AMS on test data = 3.00-3.04
 
+- Contact with authors 17/07/19 (no answer as of 17/08/19):
+  - How is the cut optimised, on validation or testing?
+  - Are the private and public subsets of the test data extracted and the AMS computed on each, or is a single AMS computed on the entire test dataset without reweighting?
+
+
 ## Requirements
 
 - Python >= 3.6
