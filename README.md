@@ -102,7 +102,7 @@ Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arx
   - Maximum public : `private AMS = 3.45 : 3.49
   - Maximum maximised public : private AMS over 10 subsamples = 5.43	3.68
 
-- Eigth attempt
+- Eighth attempt
   - Playing around with different ordering schemes
 
 - Contact with authors 10/07/19:
@@ -110,7 +110,7 @@ Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arx
   - Training and testing sizes? = Confirmed 250,000 training and 550,000 testing; difference in paper was a typo
   - How is the cut optimised, on validation or testing? = no answer
   - Is weight used as input feature? = No
-  - How is pretrained model altered? =  Confimed single stage training and only output layer of model was altered
+  - How is pretrained model altered? =  Confirmed single stage training and only output layer of model was altered
 
 - Ninth attempt
   - Moving back to text encoding, SE-Net 154, and 224x224 images
@@ -120,10 +120,17 @@ Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arx
     - Public-private AMS on test data at chosen cut = 2.95-2.95
     - Maximum public-private AMS on test data = 3.00-3.04
 
-- Contact with authors 17/07/19 (no answer as of 17/08/19):
-  - How is the cut optimised, on validation or testing?
-  - Are the private and public subsets of the test data extracted and the AMS computed on each, or is a single AMS computed on the entire test dataset without reweighting?
+- Contact with authors 17/07/19 (replied 23/01/20):
+  - How is the cut optimised, on validation or testing? = no answer
+  - Are the private and public subsets of the test data extracted and the AMS computed on each, or is a single AMS computed on the entire test dataset without reweighting? = no answer
+  - Authors pointed to https://github.com/EmjayAhn/SuperTML-pytorch which tests SuperTML on iris dataset and achieves 97% accuracy (paper reports 93% accuracy). Suggested I try my implementation on iris to rule out problems in image preparation.
+    - Over several emails I requested they check their usage of the testing set (full usage when computing AMS gives double the integrated luminosity = ~sqrt(2) increase in AMS (sqrt(2)*2.95 = 4.17, i.e. consistent with claimed 3.979))
+    - Agreed to test my implementation on Iris dataset
 
+- Iris tests:
+  - Baseline: Out-of-the-box SKLearn Random Forest = 97% validation accuracy.
+  - SuperTML: ImageNet-pretrained ResNet34 = 97% validation accuracy (with and without initial frozen training)
+  - SuperTML: Randomly initialised ResNet34 = 97% validation accuracy
 
 ## Requirements
 
