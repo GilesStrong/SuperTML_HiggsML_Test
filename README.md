@@ -131,6 +131,7 @@ Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arx
   - Baseline: Out-of-the-box SKLearn Random Forest = 97% validation accuracy.
   - SuperTML: ImageNet-pretrained ResNet34 = 97% validation accuracy (with and without initial frozen training)
   - SuperTML: Randomly initialised ResNet34 = 97% validation accuracy
+  - SuperTML: ImageNet-pretrained ResNet34 and randomly shuffled targets of data. 23% validation accuracy (expected 33%) - indicates method does actually learn something during training, rather than memorising data.
 
 ## Requirements
 
