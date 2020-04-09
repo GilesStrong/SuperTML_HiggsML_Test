@@ -133,6 +133,20 @@ Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arx
   - SuperTML: Randomly initialised ResNet34 = 97% validation accuracy
   - SuperTML: ImageNet-pretrained ResNet34 and randomly shuffled targets of data. 23% validation accuracy (expected 33%) - indicates method does actually learn something during training, rather than memorising data.
 
+- Wine tests:
+  - Baseline: Out-of-the-box SKLearn Random Forest = 100% validation accuracy.
+  - SuperTML: ImageNet-pretrained ResNet34 = 97% validation accuracy (without initial frozen training), 91% with initial frozen training (but compatible due to stats.)
+
+- Double lumi. hypothesis (higgsml1_senet154_singlestage)
+  - Ran as per best understanding of authors' model and data preparation techniques:
+    - No event rotation or flipping, no changes to features (i.e. pT eta phi coord. system), no preprocessing
+    - Trained on entire training dataset (no validation data)
+    - 224x224 images with numerical text encoding
+    - Trained SE-net 154 with no extra linear layers, extra dropout, or final batch norm. layer, no frozen pretraining
+    - Assuming 0.5 cut (authors do not mention cut optimisation and have ignored by requests for clarification, so presume that they assign to highest class prediction), public | private AMS = 2.83 | 2.84
+    - Maximum AMS on public and private achievable: 3.20 | 3.25
+    - Assuming instead the entire testing dataset was used: AMS at cut of 0.5 is 4.00, compatible with claimed AMS of 3.979
+
 ## Requirements
 
 - Python >= 3.6
