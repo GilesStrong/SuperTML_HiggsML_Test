@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3754668.svg)](https://doi.org/10.5281/zenodo.3754668)
+
 # SuperTML for HiggsML
 
 Attempting to reproduce the results of [SuperTML - Sun et al., 2019](https://arxiv.org/abs/1903.06246) for the [Higgs ML Kaggle Challenge](https://www.kaggle.com/c/higgs-boson) using data from [CERN OpenData](http://opendata.cern.ch/record/328).
